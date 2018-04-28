@@ -22,4 +22,4 @@ bool right_success = static_cast<bool>(right_move_group.move());
 
 example2
 left_success = left_move_group.move();
-left_success = static_cast<bool>(left_move_group.move());
+left_success = left_move_group.move());
