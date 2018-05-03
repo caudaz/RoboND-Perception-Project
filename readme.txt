@@ -1,15 +1,15 @@
-$ mkdir -p ~/catkin_ws/src
-$ cd ~/catkin_ws/
-$ catkin_make
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
 
-$ cd ~/catkin_ws/src
-$ git clone https://github.com/caudaz/RoboND-Perception-Project
+cd ~/catkin_ws/src
+git clone https://github.com/caudaz/RoboND-Perception-Project
 
-$ cd ~/catkin_ws
-$ rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
 
-$ cd ~/catkin_ws
-$ catkin_make
+cd ~/catkin_ws
+catkin_make
 
 ------------------------------
 Errors in files:
