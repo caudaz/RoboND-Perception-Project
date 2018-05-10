@@ -40,6 +40,13 @@ NOTE: capture_features.py list is changed: models =['biscuits','soap','soap2','b
 NOTE: output is training_set.sav saved to ~/.
 
 
+
+(----- for sensor stick features training ---------) TERMINAL
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/models
+source ~/catkin_ws/devel/setup.bash
+rosrun sensor_stick train_svm.py
+
+
 ===============
 PROJECT FILES
 ===============
