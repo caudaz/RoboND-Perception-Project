@@ -28,6 +28,7 @@ chmod u+x pr2_safe_spawner.sh
 
 
 
+
 (----- for sensor stick features capture ---------) TERMINAL1
 export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/models
 source ~/catkin_ws/devel/setup.bash
@@ -45,6 +46,26 @@ NOTE: output is training_set.sav saved to ~/.
 export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/models
 source ~/catkin_ws/devel/setup.bash
 rosrun sensor_stick train_svm.py
+NOTE: output is ~/model.sav
+
+
+
+(----- for pr2_robot PREDICTIONS ---------) TERMINAL1
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/models:$GAZEBO_MODEL_PATH
+source ~/catkin_ws/devel/setup.bash
+roslaunch pr2_robot pick_place_project.launch
+
+
+(----- for pr2_robot PREDICTIONS ---------) TERMINAL2
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/models:$GAZEBO_MODEL_PATH
+source ~/catkin_ws/devel/setup.bash
+rosrun pr2_robot project_template.py
+NOTE: project_template.py will call model.sav
+NOTE: output prediction labels will show in RVIZ window
+NOTE: output to terminal: 
+[INFO] [1525964533.106980, 1112.401000]: Detected 3 objects: ['biscuits', 'soap', 'soap2']
+[INFO] [1525964533.155272, 1112.426000]: yaml sent
+
 
 
 ===============
