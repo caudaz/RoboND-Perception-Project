@@ -6,16 +6,15 @@ git clone https://github.com/caudaz/RoboND-Perception-Project
 cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
 
-(----- for sensor stick features capture ---------)
+----- for sensor stick features capture ---------
 cp -pR ~/Downloads/robotND1-proj3-master/class_code/L17_Exercise-3/sensor_stick/ ~/catkin_ws/src/RoboND-Perception-Project/.
 chmod 755 -R ~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/
 
 cd ~/catkin_ws
 catkin_make
 
-------------------------------
-Errors in files: pr2_motion.cpp AND pr2_pick_place_server.cpp
-Ex: cast variable using static_cast
+------------- Errors in files: pr2_motion.cpp AND pr2_pick_place_server.cpp -----------------
+Fix: cast variable using static_cast
 bool right_success = right_move_group.move();
 bool right_success = static_cast<bool>(right_move_group.move());
 ------------------------------
@@ -28,21 +27,20 @@ chmod u+x pr2_safe_spawner.sh
 
 
 
-
-(----- for sensor stick features capture ---------) TERMINAL1
+----- for sensor stick features capture --------- TERMINAL1
 export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/models
 source ~/catkin_ws/devel/setup.bash
 roslaunch sensor_stick training.launch 
 
-(----- for sensor stick features capture ---------) TERMINAL2
+----- for sensor stick features capture --------- TERMINAL2
 source ~/catkin_ws/devel/setup.bash
 rosrun sensor_stick capture_features.py
 NOTE: capture_features.py list is changed: models =['biscuits','soap','soap2','book','glue','sticky_notes','snacks','eraser']
-NOTE: output is training_set.sav saved to ~/.
+NOTE: output is ~/training_set.sav
 
 
 
-(----- for sensor stick features training ---------) TERMINAL
+----- for sensor stick features training --------- TERMINAL
 export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/models
 source ~/catkin_ws/devel/setup.bash
 rosrun sensor_stick train_svm.py
@@ -50,13 +48,12 @@ NOTE: output is ~/model.sav
 
 
 
-(----- for pr2_robot PREDICTIONS ---------) TERMINAL1
+----- for pr2_robot PREDICTIONS ---------  TERMINAL1
 export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/models:$GAZEBO_MODEL_PATH
 source ~/catkin_ws/devel/setup.bash
 roslaunch pr2_robot pick_place_project.launch
 
-
-(----- for pr2_robot PREDICTIONS ---------) TERMINAL2
+----- for pr2_robot PREDICTIONS ---------  TERMINAL2
 export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/models:$GAZEBO_MODEL_PATH
 source ~/catkin_ws/devel/setup.bash
 rosrun pr2_robot project_template.py
@@ -68,9 +65,7 @@ NOTE: output to terminal:
 
 
 
-===============
-PROJECT FILES
-===============
+----- PROJECT FILES ----- 
 
 main file to modify:
 ~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/scripts/project_template.py
