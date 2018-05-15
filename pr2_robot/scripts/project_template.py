@@ -275,7 +275,7 @@ def pr2_mover(object_list):
     '''
 
     # TODO: Output your request parameters into output yaml file
-    send_to_yaml("output_2.yaml", dict_list)
+    send_to_yaml("output_3.yaml", dict_list)
     rospy.loginfo("yaml sent")
 
 
