@@ -36,11 +36,13 @@ cd ~/catkin_ws
 catkin_make
 ```
 
+```
 ------------- Errors in files: pr2_motion.cpp AND pr2_pick_place_server.cpp -----------------
 Fix: cast variable using static_cast
 bool right_success = right_move_group.move();
 bool right_success = static_cast<bool>(right_move_group.move());
 ------------------------------
+```
 
 DEMO
 ```
