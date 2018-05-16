@@ -53,3 +53,45 @@ chmod u+x pr2_safe_spawner.sh
 ./pr2_safe_spawner.sh
 ```
 
+## **1 - CAPTURE FEATURES** ##
+
+Terminal#1
+```
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/models
+source ~/catkin_ws/devel/setup.bash
+roslaunch sensor_stick training.launch 
+```
+
+Terminal#2
+```
+source ~/catkin_ws/devel/setup.bash
+rosrun sensor_stick capture_features.py 
+```
+
+
+## **2 - SVM TRAINING** ##
+
+Terminal#1
+```
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/sensor_stick/models
+source ~/catkin_ws/devel/setup.bash
+rosrun sensor_stick train_svm.py
+```
+
+
+
+## **3 - 3D PERCEPTION** ##
+
+Terminal#1
+```
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/models:$GAZEBO_MODEL_PATH
+source ~/catkin_ws/devel/setup.bash
+roslaunch pr2_robot pick_place_project.launch
+```
+
+Terminal#2
+```
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/models:$GAZEBO_MODEL_PATH
+source ~/catkin_ws/devel/setup.bash
+rosrun pr2_robot project_template.py
+```
