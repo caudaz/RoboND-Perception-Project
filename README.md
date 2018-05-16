@@ -22,15 +22,32 @@
 
 
 
-## **SETUP AND RUN** ##
-
-1-Gazebo check. It should be version 7.7.0+:
+## **INITIAL SETUP** ##
 
 ```
-gazebo --version
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install gazebo7
-gazebo –version
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+cd ~/catkin_ws/src
+git clone https://github.com/caudaz/RoboND-Perception-Project
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
+cd ~/catkin_ws
+catkin_make
 ```
+
+------------- Errors in files: pr2_motion.cpp AND pr2_pick_place_server.cpp -----------------
+Fix: cast variable using static_cast
+bool right_success = right_move_group.move();
+bool right_success = static_cast<bool>(right_move_group.move());
+------------------------------
+
+DEMO
+```
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/models:$GAZEBO_MODEL_PATH
+source ~/catkin_ws/devel/setup.bash
+cd ~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/scripts
+chmod u+x pr2_safe_spawner.sh
+./pr2_safe_spawner.sh
+```
+
