@@ -68,6 +68,8 @@ source ~/catkin_ws/devel/setup.bash
 rosrun sensor_stick capture_features.py 
 ```
 
+![Features captured for different objects at different orientations](./media/feature.png)
+
 
 ## **2 - SVM TRAINING** ##
 
