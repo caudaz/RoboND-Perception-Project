@@ -80,6 +80,10 @@ source ~/catkin_ws/devel/setup.bash
 rosrun sensor_stick train_svm.py
 ```
 
+![training accuracy](./media/training1.png)
+
+![training confusion matrix](./media/training2.png)
+
 
 
 ## **3 - 3D PERCEPTION** ##
@@ -97,3 +101,15 @@ export GAZEBO_MODEL_PATH=~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/mod
 source ~/catkin_ws/devel/setup.bash
 rosrun pr2_robot project_template.py
 ```
+
+![perception_world1](./media/perception_world1_2.png)
+
+![perception_world2](./media/perception_world2_2.png)
+
+![perception_world3](./media/perception_world3_2.png)
+
+
+
+![setup to change between worlds](./media/setup1.png)
+
+![setup to change between worlds](./media/setup2.png)
