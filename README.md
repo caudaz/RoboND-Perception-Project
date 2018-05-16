@@ -84,7 +84,21 @@ rosrun sensor_stick train_svm.py
 
 ![training confusion matrix](./media/training2.png)
 
-
+In train_svm.py it was necessary to use a LinearSVC classifier with a C value of 0.01 to improve the accuracy of the predictions compared to Exercise#2 and #3
+```
+clf = LinearSVC(C=0.01, 
+                class_weight=None, 
+                dual=True, 
+                fit_intercept=True,
+                intercept_scaling=1, 
+                loss='hinge', 
+                max_iter=2000,
+                multi_class='ovr', 
+                penalty='l2', 
+                random_state=0, 
+                tol=0.0002,
+                verbose=0)
+```
 
 ## **3 - 3D PERCEPTION** ##
 
@@ -108,7 +122,36 @@ rosrun pr2_robot project_template.py
 
 ![perception_world3](./media/perception_world3_2.png)
 
+It was necessary to use a statistical filter to deal with the point cloud noise on project_template.py
+```
+filter = cloud.make_statistical_outlier_filter()
+```
+It was also necessary to add a second passthrough filter in the x-dir (besides the z-dir)
+```
+passthrough_x = cloud_filtered.make_passthrough_filter()
+filter_axis = 'x'
+```
 
+
+## **OUTPUT FILES** ##
+
+[Features](./output_files/training_set.sav)
+
+
+[SVC model](./output_files/model.sav)
+
+
+[World1 Yaml](./output_files/output_1.yaml)
+
+
+[World2 Yaml](./output_files/output_2.yaml)
+
+
+[World3 Yaml](./output_files/output_3.yaml)
+
+
+
+## **INSTRUCTIONS TO SWITCH BETWEEN FILES** ##
 
 ![setup to change between worlds](./media/setup1.png)
 

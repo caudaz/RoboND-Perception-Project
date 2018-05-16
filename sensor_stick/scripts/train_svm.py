@@ -64,16 +64,16 @@ y_train = encoder.fit_transform(y_train)
 
 # Create classifier
 clf = LinearSVC(C=0.01, 
-				class_weight=None, 
-				dual=True, 
-				fit_intercept=True,
+                class_weight=None, 
+                dual=True, 
+                fit_intercept=True,
                 intercept_scaling=1, 
-				loss='hinge', 
-				max_iter=2000,
+                loss='hinge', 
+                max_iter=2000,
                 multi_class='ovr', 
-				penalty='l2', 
-				random_state=0, 
-				tol=0.0002,
+                penalty='l2', 
+                random_state=0, 
+                tol=0.0002,
                 verbose=0)
 
 # Set up 5-fold cross-validation
