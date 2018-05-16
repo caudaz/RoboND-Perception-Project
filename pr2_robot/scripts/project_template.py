@@ -213,40 +213,40 @@ def pr2_mover(object_list):
 
     for object in object_list:
         labels.append(object.label)
-	print(labels)
+    print(labels)
         points_arr = ros_to_pcl(object.cloud).to_array()
         # TODO: Get the PointCloud for a given object and obtain it's centroid
         centroid = np.mean(points_arr, axis=0)[:3]
         centroids.append(centroid)
         obj_label[object.label] = centroid
-	
+    
     for i in range(0,len(object_list_param)):
-	object_name.data = object_list_param[i]['name']
-    	object_group = object_list_param[i]['group']
+    object_name.data = object_list_param[i]['name']
+        object_group = object_list_param[i]['group']
 
-    	pick_pose.position.x = np.asscalar(obj_label[object_name.data][0])
-    	pick_pose.position.y = np.asscalar(obj_label[object_name.data][1])
-    	pick_pose.position.z = np.asscalar(obj_label[object_name.data][2])
+        pick_pose.position.x = np.asscalar(obj_label[object_name.data][0])
+        pick_pose.position.y = np.asscalar(obj_label[object_name.data][1])
+        pick_pose.position.z = np.asscalar(obj_label[object_name.data][2])
 
     # TODO: Assign the arm to be used for pick_place
 
-    	if object_list_param[i]['group'] == 'red':
-        	arm_name.data = 'left'
-    	else:
-        	arm_name.data = 'right'
+        if object_list_param[i]['group'] == 'red':
+            arm_name.data = 'left'
+        else:
+            arm_name.data = 'right'
 
-    		
-    	if arm_name.data == 'left':
-        	box_target = box_left
-    	else:
-        	box_target = box_right
+            
+        if arm_name.data == 'left':
+            box_target = box_left
+        else:
+            box_target = box_right
 
-    	place_pose.position.x = box_target[0]
-    	place_pose.position.y = box_target[1]
-    	place_pose.position.z = box_target[2]
-	
-	yaml_dict = make_yaml_dict(test_scene_num, arm_name, object_name, pick_pose, place_pose)
-    	dict_list.append(yaml_dict)	
+        place_pose.position.x = box_target[0]
+        place_pose.position.y = box_target[1]
+        place_pose.position.z = box_target[2]
+    
+    yaml_dict = make_yaml_dict(test_scene_num, arm_name, object_name, pick_pose, place_pose)
+        dict_list.append(yaml_dict) 
 
     # TODO: Rotate PR2 in place to capture side tables for the collision map
 
@@ -257,11 +257,11 @@ def pr2_mover(object_list):
        
         # TODO: Create a list of dictionaries (made with make_yaml_dict()) for later output to yaml format
     
-	
+    
     '''
         # Wait for 'pick_place_routine' service to come up
         rospy.wait_for_service('pick_place_routine')
-	
+    
         try:
             pick_place_routine = rospy.ServiceProxy('pick_place_routine', PickPlace)
 

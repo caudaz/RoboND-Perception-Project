@@ -53,6 +53,8 @@ chmod u+x pr2_safe_spawner.sh
 ./pr2_safe_spawner.sh
 ```
 
+
+
 ## **1 - CAPTURE FEATURES** ##
 
 Terminal#1
@@ -69,6 +71,8 @@ rosrun sensor_stick capture_features.py
 ```
 
 ![Features captured for different objects at different orientations](./media/feature.png)
+
+
 
 
 ## **2 - SVM TRAINING** ##
@@ -100,6 +104,8 @@ clf = LinearSVC(C=0.01,
                 verbose=0)
 ```
 
+
+
 ## **3 - 3D PERCEPTION** ##
 
 Terminal#1
@@ -116,10 +122,15 @@ source ~/catkin_ws/devel/setup.bash
 rosrun pr2_robot project_template.py
 ```
 
+World#1
 ![perception_world1](./media/perception_world1_2.png)
 
+
+World#2
 ![perception_world2](./media/perception_world2_2.png)
 
+
+World#3
 ![perception_world3](./media/perception_world3_2.png)
 
 It was necessary to use a statistical filter to deal with the point cloud noise on project_template.py
@@ -131,6 +142,8 @@ It was also necessary to add a second passthrough filter in the x-dir (besides t
 passthrough_x = cloud_filtered.make_passthrough_filter()
 filter_axis = 'x'
 ```
+
+
 
 
 ## **OUTPUT FILES** ##
@@ -148,6 +161,8 @@ filter_axis = 'x'
 
 
 [World3 Yaml](./output_files/output_3.yaml)
+
+
 
 
 
