@@ -24,6 +24,11 @@
 
 ## **INITIAL SETUP** ##
 
+```diff
+- NOTE: THIS MODEL ONLY WORKS WITH UBUNTU16.04 AND ROS1-KINETIC
+(TESTED ON UBUNTU18.04 AND ROS1-MELODIC AND DID NOT WORK!!!)
+```
+
 ```
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
